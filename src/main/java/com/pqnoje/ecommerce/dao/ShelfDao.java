@@ -15,13 +15,13 @@ import com.pqnoje.ecommerce.model.Shelf;
 public class ShelfDao implements Dao<Shelf> {
 
 	@Override
-	public Optional<Shelf> get(long id) {
+	public Optional<Shelf> get(int id)  throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
 	@Override
-	public List<Shelf> getAll() {
+	public List<Shelf> getAll()  throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -72,13 +72,13 @@ public class ShelfDao implements Dao<Shelf> {
 	}
 
 	@Override
-	public void update(Shelf t, String[] params) {
+	public void update(Shelf t, int shelfId) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void delete(Shelf t) {
+	public void delete(int t) {
 		// TODO Auto-generated method stub
 
 	}
