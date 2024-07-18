@@ -42,13 +42,13 @@ Esta é uma simples aplicação Spring Boot que demonstra o consumo de API para 
 Clone este repositório em seu computador:
 
 ```
-git clone https://github.com/pqnoje/easy-peazy-api.git
+git clone https://github.com/pqnoje/ecommerce.git
 ```
 
 Navegue até o diretório do projeto:
 
 ```
-cd easy-peazy-api
+cd ecommerce
 ```
 
 Construa o projeto com Maven:
@@ -73,7 +73,7 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 
 ### Registro de usuários
 
-- **URL:** `/api/register`
+- **URL:** `/register`
 - **Method:** `POST`
 - **Request Body:**
   ```json
@@ -90,7 +90,7 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 
 ### Autenticação de usuário
 
-- **URL:** `/api/authenticate`
+- **URL:** `/authenticate`
 - **Method:** `POST`
 - **Request Body:**
 ```json
@@ -103,14 +103,14 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 
 ### Retornar os detalhes do usuário
 
-- **URL:** `/api/user`
+- **URL:** `/user`
 - **Method:** `GET`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 - **Resposta:** Um objeto JSON com os detalhes do usuário
 
 ### Cadastra um nova prateleira
 
-- **URL:** `/api/shelf`
+- **URL:** `/shelf`
 - **Method:** `POST`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 - **Request Body:**
@@ -124,7 +124,7 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 
 ### Cadastra um novo produto
 
-- **URL:** `/api/product`
+- **URL:** `/product`
 - **Method:** `POST`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 - **Request Body:**
@@ -144,7 +144,7 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 
 ### Atualiza um produto
 
-- **URL:** `/api/product`
+- **URL:** `/product`
 - **Method:** `PUT`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 - **Request Body:**
@@ -164,7 +164,7 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 
 ### Deleta um produto
 
-- **URL:** `/api/product/id`
+- **URL:** `/product/id`
 - **Method:** `DELETE`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 
@@ -172,17 +172,17 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 
 ### Detalhes da prateleira
 
-- **URL:** `/api/shelf/id`
+- **URL:** `/shelf/id`
 - **Method:** `GET`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 
 - **Resposta:** Um objeto JSON com os detalhes da prateleira
 
-http://localhost:8080/api/shelf/1
+http://localhost:8080/shelf/1
 
 ### Detalhes do produto
 
-- **URL:** `/api/product/id`
+- **URL:** `/product/id`
 - **Method:** `GET`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 
@@ -190,7 +190,7 @@ http://localhost:8080/api/shelf/1
 
 ### Lista de todos os produtos de uma prateleira
 
-- **URL:** `/api/product/shelf/id`
+- **URL:** `/product/shelf/id`
 - **Method:** `GET`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 
@@ -216,13 +216,13 @@ http://localhost:8080/api/shelf/1
 - Os endereços HTTP são seguros por Spring Security e JWT Tokens.
 - Os tokens JWT são validados antes de garantir acesso aos endereços HTTP protegidos.
 
-## Building With Docker on Linux
+## Construíndo com Docker
 
-# Prerequisites
+# Prerequisitos
 
-- Docker Desktop Installed
+- Docker Desktop Instalado
 
-# Commands
+# Comandos
 
 ```
 docker build --platform linux/amd64 -t ecommerce . 
