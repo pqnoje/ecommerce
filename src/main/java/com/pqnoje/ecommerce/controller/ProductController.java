@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.pqnoje.ecommerce.helper.SQLExceptionMessagerHelper;
 import com.pqnoje.ecommerce.model.Product;
 import com.pqnoje.ecommerce.model.Shelf;
 import com.pqnoje.ecommerce.service.ProductService;
@@ -91,6 +90,19 @@ public class ProductController {
 	public ResponseEntity<List<Product>> getAllProducts() throws ResponseStatusException {
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(this.productService.getAll());
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		}
+	}
+	
+	@GetMapping(path = "product/shelf/{shelfId}")
+	public ResponseEntity<List<Product>> getAllProducts(@PathVariable int shelfId) throws ResponseStatusException {
+		try {
+			return ResponseEntity.status(HttpStatus.OK).body(this.productService.listProductsByShelfId(shelfId));
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

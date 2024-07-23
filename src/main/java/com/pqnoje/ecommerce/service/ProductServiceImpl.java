@@ -30,10 +30,19 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> listProductsByShelfId(int shelfId) {
-		ProductDao productDao = new ProductDao();
-		List<Product> products = productDao.listProductsByShelfId(shelfId);
-		return products;
+	public List<Product> listProductsByShelfId(int shelfId)  throws Exception, SQLException, IllegalArgumentException {
+		try {
+			ProductDao productDao = new ProductDao();
+			List<Product> products = productDao.listProductsByShelfId(shelfId);
+			return products;
+		} catch (IllegalArgumentException illegalArgumentException) {
+			IllegalArgumentExceptionMessageHelper.printStackMessageErrors(illegalArgumentException);
+			throw illegalArgumentException;
+		} catch (Exception exception) {
+			ExceptionMessageHelper.printStackMessageErrors(exception);
+			throw exception;
+		}
+		
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public interface ProductService {
 	
 	public Product save(Product product);
 	public void associateToShelfs(List<Shelf> shelfs, int productId);
-	public List<Product> listProductsByShelfId(int shelfId);
+	public List<Product> listProductsByShelfId(int shelfId) throws Exception, SQLException, IllegalArgumentException;
 	public void update(Product product, int productId);
 	public void delete(int productId) throws Exception, SQLException;
 	public Product get(int productId) throws Exception, SQLException, IllegalArgumentException;
